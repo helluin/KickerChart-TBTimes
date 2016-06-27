@@ -334,11 +334,9 @@ function drawCharts(container_width) {
                 return "G-THREE" + i;
             })
             .attr("r", function (d, i) {
-<<<<<<< HEAD
+
                 return 5;
-=======
-                return 3 + d.games * 0.03;
->>>>>>> origin/master
+
 
             })
             .attr("cx", xMap)
