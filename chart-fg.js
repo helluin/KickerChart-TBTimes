@@ -297,7 +297,8 @@ function drawCharts(container_width) {
             , yMap = function (d) {
                 return yScale(yValue(d));
             }
-            , yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(5);
+            , formatyAxis = d3.format(".03g")
+            , yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(formatyAxis).ticks(5);
 
 
         xScale.domain([d3.min(data, xValue) - 0.1, d3.max(data, xValue)]);

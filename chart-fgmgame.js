@@ -10,14 +10,14 @@ function drawCharts(container_width) {
         container_width = 600;
     }
     var margin = {
-            top: 20,
-            right: 20,
-            bottom: 30,
-            left: 80
-        },
-        padding = 20,
-        width = container_width - margin.left - margin.right,
-        height = Math.ceil((width * graphics_aspect_height) / graphics_aspect_width) - margin.top - margin.bottom;
+            top: 20
+            , right: 20
+            , bottom: 30
+            , left: 80
+        }
+        , padding = 20
+        , width = container_width - margin.left - margin.right
+        , height = Math.ceil((width * graphics_aspect_height) / graphics_aspect_width) - margin.top - margin.bottom;
 
 
     $graphic.empty();
@@ -164,22 +164,25 @@ function drawCharts(container_width) {
         var xValue = function (d) {
                 //console.log(d);
                 return d.fgmgame;
-            },
-            xScale = d3.scale.linear().range([0, width]),
-            xMap = function (d) {
+            }
+            , xScale = d3.scale.linear().range([0, width])
+            , xMap = function (d) {
                 return xScale(xValue(d));
-            },
-            xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(5);
+            }
+            , xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(5);
         // setup y
         var yValue = function (d) {
                 //console.log(d);
                 return d.win;
-            },
-            yScale = d3.scale.linear().range([height, 0]),
-            yMap = function (d) {
+            }
+            , yScale = d3.scale.linear().range([height, 0])
+            , yMap = function (d) {
                 return yScale(yValue(d));
-            },
-            yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(5);
+            }
+            
+            , formatyAxis = d3.format(".03g")
+            , yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(formatyAxis).ticks(5);
+
 
 
         xScale.domain([d3.min(data, xValue) - 0.1, d3.max(data, xValue)]);
