@@ -1,6 +1,6 @@
 var pymChild = null;
-var graphics_aspect_width = 16;
-var graphics_aspect_height = 9;
+var graphics_aspect_width = 4;
+var graphics_aspect_height = 3;
 var mobile_threshold = 500;
 var $graphic = $("#iframeContainer");
 
@@ -34,6 +34,7 @@ function drawCharts(container_width) {
         var chartOne = d3.select("body").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
+            .style("overflow", "visible")
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -46,7 +47,7 @@ function drawCharts(container_width) {
             xMap = function (d) {
                 return xScale(xValue(d));
             },
-            xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(5);
+            xAxis = d3.svg.axis().scale(xScale).outerTickSize(0).orient("bottom").ticks(5);
         // setup y
         var yValue = function (d) {
                 //console.log(d);
@@ -57,11 +58,11 @@ function drawCharts(container_width) {
                 return yScale(yValue(d));
             }
             , formatyAxis = d3.format(".03g")
-            , yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(formatyAxis).ticks(5);
+            , yAxis = d3.svg.axis().scale(yScale).orient("left").outerTickSize(0).tickFormat(formatyAxis).ticks(5);
 
 
         xScale.domain([d3.min(data, xValue) - 0.2, d3.max(data, xValue)]);
-        yScale.domain([d3.min(data, yValue) - 0.1, d3.max(data, yValue)]);
+        yScale.domain([d3.min(data, yValue) - 0.05, d3.max(data, yValue)]);
         // x-axis
         chartOne.append("g")
             .attr("class", "x axis")
@@ -69,18 +70,17 @@ function drawCharts(container_width) {
             .call(xAxis)
             .append("text")
             .attr("class", "label")
-            .attr("x", width)
-            .attr("y", -6)
-            .style("text-anchor", "end")
-            .text("avgFgDistance");
+            .style("text-anchor", "middle")
+          .attr("transform", "translate(" + width/2 + ", 45)") // text is drawn off the screen top left, move down and out and rotate
+            .text("Field goal distance");
         // y-axis
         chartOne.append("g")
             .attr("class", "y axis")
             .call(yAxis)
             .append("text")
             .attr("text-anchor", "middle") // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate(-35" + "," + (height / 2) + ")rotate(-90)") // text is drawn off the screen top left, move down and out and rotate
-            .text("WIN%");
+            .attr("transform", "translate(-55" + "," + (height / 2) + ")rotate(-90)") // text is drawn off the screen top left, move down and out and rotate
+            .text("Win percentage");
         //draw dots
         chartOne.selectAll(".dot")
             .data(data)

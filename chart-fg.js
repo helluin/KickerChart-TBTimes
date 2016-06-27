@@ -1,6 +1,6 @@
 var pymChild = null;
-var graphics_aspect_width = 16;
-var graphics_aspect_height = 9;
+var graphics_aspect_width = 4;
+var graphics_aspect_height = 3;
 var mobile_threshold = 500;
 var $graphic = $("#iframeContainer");
 
@@ -274,8 +274,9 @@ function drawCharts(container_width) {
         var chartThree = d3.select("body").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
+            .style("overflow", "visible")
             .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")").attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")").attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", "0 0 600 400");
 
         // setup x
@@ -287,7 +288,9 @@ function drawCharts(container_width) {
             , xMap = function (d) {
                 return xScale(xValue(d));
             }
-            , xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(5);
+            , xAxis = d3.svg.axis().scale(xScale).orient("bottom").outerTickSize(0).tickFormat(function (d) {
+                return d + "%";
+            }).ticks(5);
         // setup y
         var yValue = function (d) {
                 //console.log(d);
@@ -298,33 +301,31 @@ function drawCharts(container_width) {
                 return yScale(yValue(d));
             }
             , formatyAxis = d3.format(".03g")
-            , yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(formatyAxis).ticks(5);
+            , yAxis = d3.svg.axis().scale(yScale).orient("left").outerTickSize(0).tickFormat(formatyAxis).ticks(5);
 
 
-        xScale.domain([d3.min(data, xValue) - 0.1, d3.max(data, xValue)]);
+        xScale.domain([d3.min(data, xValue) - 0.5, d3.max(data, xValue)]);
         yScale.domain([d3.min(data, yValue) - 0.05, d3.max(data, yValue)]);
         // x-axis
         chartThree.append("g")
+            .attr("class", "x axis")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis)
             .append("text")
             .attr("class", "label")
-            .attr("x", width)
-            .attr("y", -6)
-            .style("text-anchor", "end")
-            .text("FG%");
+            .style("text-anchor", "middle")
+            .attr("transform", "translate(" + width / 2 + ", 45)") // text is drawn off the screen top left, move down and out and rotate
+            .text("Field goal percentage");
         // y-axis
         chartThree.append("g")
             .attr("class", "y axis")
             .call(yAxis)
             .append("text")
-            .attr("class", "label")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("WIN%");
+            .attr("text-anchor", "middle") // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate(-55" + "," + (height / 2) + ")rotate(-90)") // text is drawn off the screen top left, move down and out and rotate
+
+        .text("Win percentage");
         //draw dots
         chartThree.selectAll(".dot")
             .data(data)
