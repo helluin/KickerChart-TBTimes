@@ -358,4 +358,4 @@ $(window).load(function () {
         renderCallback: drawCharts
     });
 
-})
+});

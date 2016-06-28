@@ -76,7 +76,7 @@ function drawCharts(container_width) {
             .style("text-anchor", "middle")
             .style("font-family", "HelveticaNeue-CondensedBold")
             .attr("transform", "translate(" + width / 2 + ", 45)") // text is drawn off the screen top left, move down and out and rotate
-            .text("Pick / y");
+            .text("Pick");
         // y-axis
         chartDraftedKicker.append("g")
             .attr("class", "y axis")
