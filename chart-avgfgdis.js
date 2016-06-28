@@ -112,8 +112,6 @@ function drawCharts(container_width) {
                 dotHighlight(d, i, thisID, this);
 
                 $("#PlayerName").html(d.kicker +", " + "<span class=\'TeamNameSpan\' >" + d.team + "</span>");
-               
-                console.log(playerName);
                 playerStats.text(function () {
                     var rawStats = d.avgFgDistance;
                     var formattedStats = d3.format(".3g")(rawStats);
