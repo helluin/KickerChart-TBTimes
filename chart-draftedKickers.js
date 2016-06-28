@@ -35,6 +35,7 @@ function drawCharts(container_width) {
         //ToolTip 
         var toolTip = d3.select(document.getElementById("toolTip"));
         var player = d3.select(document.getElementById("PlayerName"));
+        var yearDrafted = d3.select(document.getElementById("YearDrafted"));
         var pick = d3.select(document.getElementById("Pick"));
         var carAV = d3.select(document.getElementById("CareerAV"));
 
@@ -111,11 +112,17 @@ function drawCharts(container_width) {
                     console.log(d);
                     return d.player;
                 });
+            
+                yearDrafted.text(function(){ 
+                    return "Year drafted: " + d.year;
+                });
+                
+                
                 pick.text(function () {    
                     var rawStats = d.pick;
                      
                     var formattedStats = d3.format(".3g")(rawStats);
-                    return "Pick per year: " + rawStats  ;
+                    return "Pick: " + rawStats  ;
 
                 }).style("color", "rgb(100,200,170)");
                 carAV.text(function () {

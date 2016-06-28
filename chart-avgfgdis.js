@@ -62,11 +62,11 @@ function drawCharts(container_width) {
                 return yScale(yValue(d));
             }
             , formatyAxis = d3.format(".03g")
-            , yAxis = d3.svg.axis().scale(yScale).orient("left").outerTickSize(0).tickFormat(formatyAxis).ticks(5);
+            , yAxis = d3.svg.axis().scale(yScale).orient("left").outerTickSize(0).tickFormat(formatyAxis).ticks(4);
 
 
         xScale.domain([d3.min(data, xValue) - 0.2, d3.max(data, xValue) + 1]);
-        yScale.domain([d3.min(data, yValue) - 0.05, d3.max(data, yValue)]);
+          yScale.domain([0.001, 0.800]);
         // x-axis
         chartOne.append("g")
             .attr("class", "x axis")
@@ -194,16 +194,16 @@ function drawCharts(container_width) {
         playerStats.text(function () {
             var rawStats = d.avgFgDistance;
             var formattedStats = d3.format(".3g")(rawStats);
-            return "Avg FG Distance: " + formattedStats;
+            return"Avg FG distance: " + formattedStats + " yards" ;
 
-        });
+        }).style("color", "rgb(220,100,100)");
 
         winPercentage.text(function () {
             var rawStats = d.win;
             var formattedStats = d3.format(".3g")(rawStats);
             return "Win%: " + formattedStats;
 
-        }).style("color", "rgb(220,100,100)");
+        });
 
         toolTip.transition().duration(200)
             .style("opacity", 1)
