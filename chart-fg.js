@@ -247,29 +247,26 @@ function drawCharts(container_width) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_2.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
-
-
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_2.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             console.log(ID_b);
         }
-        return d3.select(that).transition().duration(500).attr("r", (5) + 13);
+        return d3.select(that).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
     }
 
     function dotShrink(d, i, thisID, that) {
@@ -285,29 +282,29 @@ function drawCharts(container_width) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_2.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5);
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5);
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
 
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
             console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5);
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5);
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
             console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5);
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
             var tempID2 = linkFrame_2.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5);
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
         }
         //  console.log(that);
-        return d3.select(that).transition().duration(500).attr("r", 5);
+        return d3.select(that).transition().duration(500).attr("r", 5).attr("stroke","none");
 
     }
 

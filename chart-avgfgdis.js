@@ -21,9 +21,12 @@ function drawCharts(container_width) {
 
 
 
-    // --------------//
-    //  GRAPH 1 -----//
-    //---------------//
+    //ToolTip 
+    var toolTip = d3.select(document.getElementById("toolTip"));
+    var playerName = d3.select(document.getElementById("PlayerName"));
+    var playerTeams = d3.select(document.getElementById("Teams"));
+    var playerStats = d3.select(document.getElementById("Stats"));
+    var winPercentage = d3.select(document.getElementById("WinPercentage"));
 
 
 
@@ -37,12 +40,7 @@ function drawCharts(container_width) {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        //ToolTip 
-        var toolTip = d3.select(document.getElementById("toolTip"));
-        var playerName = d3.select(document.getElementById("PlayerName"));
-        var playerTeams = d3.select(document.getElementById("Teams"));
-        var playerStats = d3.select(document.getElementById("Stats"));
-      var winPercentage = d3.select(document.getElementById("WinPercentage"));
+
 
         // setup x
         var xValue = function (d) {
@@ -94,7 +92,6 @@ function drawCharts(container_width) {
             .enter().append("circle")
             .attr("class", "dot")
             .attr("id", function (d, i) {
-
                 return "G-ONE" + i;
             })
             .attr("r", function (d) {
@@ -108,31 +105,36 @@ function drawCharts(container_width) {
             .attr("cy", yMap)
             .on("mouseover", function (d, i) {
 
+
                 var thisID = "G-ONE" + i;
                 dotHighlight(d, i, thisID, this);
+                showTooltip(d, i, thisID, this);
 
-                $("#PlayerName").html(d.kicker +", " + "<span class=\'TeamNameSpan\' >" + d.team + "</span>");
-                playerStats.text(function () {
-                    var rawStats = d.avgFgDistance;
-                    var formattedStats = d3.format(".3g")(rawStats);
-                    return "Avg FG Distance: " + formattedStats;
 
-                }).style("color",   "rgb(200, 50, 50)");
-            
-                winPercentage.text(function () {
-                    var rawStats = d.win;
-                    var formattedStats = d3.format(".3g")(rawStats);
-                    return "Win%: " + formattedStats ;
 
-                }).style("color","rgb(150,150,150)");
 
-                toolTip.transition().duration(200)
-                    .style("opacity", 1)
-                    .style('position', 'absolute')
-                    .style('left', toolTipLocator("x"))
-                    .style('top', toolTipLocator("y"))
-                    .style("width", "auto")
-                    .style("height", "auto");
+
+
+                //                var toolTipCrossOver_1 = parent.document.getElementById("chart-fgmgame").contentDocument.getElementById("toolTip");
+                //                var toolTipCrossOver_2 = parent.document.getElementById("chart-fg").contentDocument.getElementById("toolTip");
+                //                console.log(toolTipCrossOver_1);
+                //                d3.select(toolTipCrossOver_1).transition().duration(200)
+                //                    .style("opacity", 1)
+                //                    .style('position', 'absolute')
+                //                    .style('left', toolTipLocator("x"))
+                //                    .style('top', toolTipLocator("y"))
+                //                    .style("width", "auto")
+                //                    .style("height", "auto");
+                //                d3.select(toolTipCrossOver_2).transition().duration(200)
+                //                    .style("opacity", 1)
+                //                    .style('position', 'absolute')
+                //                    .style('left', toolTipLocator("x"))
+                //                    .style('top', toolTipLocator("y"))
+                //                    .style("width", "auto")
+                //                    .style("height", "auto");
+
+                //    d3.select linkFrame_2.getElementById("")
+
 
             })
             .on("mouseout", function (d, i) {
@@ -146,45 +148,69 @@ function drawCharts(container_width) {
 
 
         //Trend Line
-//        var xSeries = data.map(function (d) {
-//            return parseFloat(d['avgFgDistance']);
-//        });;
-//        var ySeries = data.map(function (d) {
-//            return parseFloat(d['win']);
-//        });
-//
-//        var lr = linearRegression(ySeries, xSeries);
-//        console.log(lr.r2);
-//
-//        var max = d3.max(data, function (d) {
-//            return d.avgFgDistance;
-//        });
-//        var myLine = chartOne.append("svg:line")
-//            .attr("class", "trendLine")
-//            .attr("x1", function () {
-//                console.log(xScale(0));
-//                return xScale(d3.min(data, xValue));
-//            })
-//            .attr("y1", function () {
-//                console.log(yScale(lr.intercept));
-//                return yScale(d3.min(data, xValue) * lr.slope + lr.intercept);
-//            })
-//            .attr("x2", function () {
-//                return xScale(max + 1);
-//
-//            })
-//            .attr("y2", function () {
-//
-//                return yScale(((max + 1) * lr.slope) + lr.intercept);
-//            }).style("stroke", "rgba(200,200,200,1)");
+        //        var xSeries = data.map(function (d) {
+        //            return parseFloat(d['avgFgDistance']);
+        //        });;
+        //        var ySeries = data.map(function (d) {
+        //            return parseFloat(d['win']);
+        //        });
+        //
+        //        var lr = linearRegression(ySeries, xSeries);
+        //        console.log(lr.r2);
+        //
+        //        var max = d3.max(data, function (d) {
+        //            return d.avgFgDistance;
+        //        });
+        //        var myLine = chartOne.append("svg:line")
+        //            .attr("class", "trendLine")
+        //            .attr("x1", function () {
+        //                console.log(xScale(0));
+        //                return xScale(d3.min(data, xValue));
+        //            })
+        //            .attr("y1", function () {
+        //                console.log(yScale(lr.intercept));
+        //                return yScale(d3.min(data, xValue) * lr.slope + lr.intercept);
+        //            })
+        //            .attr("x2", function () {
+        //                return xScale(max + 1);
+        //
+        //            })
+        //            .attr("y2", function () {
+        //
+        //                return yScale(((max + 1) * lr.slope) + lr.intercept);
+        //            }).style("stroke", "rgba(200,200,200,1)");
 
 
-        if (pymChild) {
-            pymChild.sendHeight();
-        }
+        
+        
+    function showTooltip(d, i) {
 
-    });
+        $("#PlayerName").html(d.kicker + ", " + "<span class=\'TeamNameSpan\' >" + d.team + "</span>");
+        playerStats.text(function () {
+            var rawStats = d.avgFgDistance;
+            var formattedStats = d3.format(".3g")(rawStats);
+            return "Avg FG Distance: " + formattedStats;
 
+        });
+
+        winPercentage.text(function () {
+            var rawStats = d.win;
+            var formattedStats = d3.format(".3g")(rawStats);
+            return "Win%: " + formattedStats;
+
+        }).style("color", "rgb(220,100,100)");
+
+        toolTip.transition().duration(200)
+            .style("opacity", 1)
+            .style('position', 'absolute')
+            .style('left', toolTipLocator("x"))
+            .style('top', toolTipLocator("y"))
+            .style("width", "auto")
+            .style("height", "auto");      
+        
+//         this.postMessage(["hi"], 'http://localhost:8000/parent.html'); 
+        
+    }
 
 
     function toolTipLocator(thisAxis) {
@@ -259,29 +285,41 @@ function drawCharts(container_width) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_2.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 ) + 10);
+            var tempID1_tool = linkFrame_2.getElementById("toolTip");
+            var tempID1_pn=linkFrame_2.getElementById("PlayerName");
+            
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
+            
+            $(tempID1_pn).html(d.kicker);
+            d3.select(tempID1_tool).transition().duration(200)
+            .style("opacity", 1)
+            .style('position', 'absolute')
+            .style('left', xScale(d.fgmgame))
+            .style('top', yScale(d.win))
+            .style("width", "auto")
+            .style("height", "auto");
+            console.log(tempID1_tool);
+//            d3.select(tempID1.parentNode).append("text").text("YAY").;
+            
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5 ) + 10);
-
-
-            d3.select(tempID2).transition().duration(500).attr("r", (5 ) + 10);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 ) + 10);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 ) + 10);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_2.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5 ) + 10);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             console.log(ID_b);
         }
-        return d3.select(that).transition().duration(500).attr("r", (5) + 13);
+        return d3.select(that).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
     }
 
     function dotShrink(d, i, thisID, that) {
@@ -297,31 +335,51 @@ function drawCharts(container_width) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_2.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 );
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 );
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
 
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
             console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 );
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 );
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
             console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 );
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
             var tempID2 = linkFrame_2.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 );
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
         }
         //  console.log(that);
-        return d3.select(that).transition().duration(500).attr("r", 5);
+        return d3.select(that).transition().duration(500).attr("r", 5).attr("stroke","none");
 
     }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        if (pymChild) {
+            pymChild.sendHeight();
+        }
+
+    });
+
 
 }
 

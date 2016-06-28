@@ -98,7 +98,7 @@
         "player": "Doug Brien",
         "pos": "K",
         "year": 1994,
-        "tm": "SFO",
+        "tm": "SF",
         "rnd": 3,
         "pick": 85,
         "drage": 23,
@@ -117,7 +117,7 @@
         "player": "Stephen Gostkowski",
         "pos": "K",
         "year": 2006,
-        "tm": "NWE",
+        "tm": "NE",
         "rnd": 4,
         "pick": 118,
         "drage": 22,
@@ -136,7 +136,7 @@
         "player": "Mason Crosby",
         "pos": "K",
         "year": 2007,
-        "tm": "GNB",
+        "tm": "GB",
         "rnd": 6,
         "pick": 194,
         "drage": 23,
@@ -187,13 +187,13 @@
         "carav": 21,
         "g": 134,
         "gs": 0,
-        "collegeuniv": "Arizona"
+        "collegeuniv": "AZzona"
     },
     {
         "player": "Nate Kaeding",
         "pos": "K",
         "year": 2004,
-        "tm": "SDG",
+        "tm": "SD",
         "rnd": 3,
         "pick": 65,
         "drage": 22,
@@ -212,7 +212,7 @@
         "player": "Ryan Succop",
         "pos": "K",
         "year": 2009,
-        "tm": "KAN",
+        "tm": "KC",
         "rnd": 7,
         "pick": 256,
         "drage": 22,
@@ -263,7 +263,7 @@
         "carav": 17,
         "g": 109,
         "gs": 0,
-        "collegeuniv": "Kansas St."
+        "collegeuniv": "KCsas St."
     },
     {
         "player": "Paul Edinger",
@@ -363,7 +363,7 @@
         "player": "Brett Conway",
         "pos": "K",
         "year": 1997,
-        "tm": "GNB",
+        "tm": "GB",
         "rnd": 3,
         "pick": 90,
         "drage": 22,
@@ -477,7 +477,7 @@
         "player": "Bill Gramatica",
         "pos": "K",
         "year": 2001,
-        "tm": "ARI",
+        "tm": "AZ",
         "rnd": 4,
         "pick": 98,
         "drage": 23,
@@ -509,13 +509,13 @@
         "carav": 2,
         "g": 22,
         "gs": 0,
-        "collegeuniv": "Northern Arizona"
+        "collegeuniv": "NOthern AZzona"
     },
     {
         "player": "Owen Pochman",
         "pos": "K",
         "year": 2001,
-        "tm": "NWE",
+        "tm": "NE",
         "rnd": 7,
         "pick": 216,
         "drage": 24,
@@ -572,7 +572,7 @@
         "player": "Jeff Chandler",
         "pos": "K",
         "year": 2002,
-        "tm": "SFO",
+        "tm": "SF",
         "rnd": 4,
         "pick": 102,
         "drage": 23,
@@ -591,7 +591,7 @@
         "player": "Justin Medlock",
         "pos": "K",
         "year": 2007,
-        "tm": "KAN",
+        "tm": "KC",
         "rnd": 5,
         "pick": 160,
         "drage": 23,
@@ -642,7 +642,7 @@
         "carav": 0,
         "g": 8,
         "gs": 0,
-        "collegeuniv": "Arkansas"
+        "collegeuniv": "ArKCsas"
     },
     {
         "player": "Steve McLaughlin",
@@ -661,7 +661,7 @@
         "carav": -1,
         "g": 8,
         "gs": 0,
-        "collegeuniv": "Arizona"
+        "collegeuniv": "AZzona"
     },
     {
         "player": "Jeff Hall",
@@ -686,7 +686,7 @@
         "player": "Taylor Mehlhaff",
         "pos": "K",
         "year": 2008,
-        "tm": "NOR",
+        "tm": "NO",
         "rnd": 6,
         "pick": 178,
         "drage": 23,
@@ -743,7 +743,7 @@
         "player": "Kurt Smith",
         "pos": "K",
         "year": 2006,
-        "tm": "SDG",
+        "tm": "SD",
         "rnd": 6,
         "pick": 188,
         "seasonsInLeague": 1,
