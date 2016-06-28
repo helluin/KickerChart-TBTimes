@@ -33,7 +33,11 @@
       font-family: 'Open Sans Condensed', sans-serif ;
       font-size: 1em;
   }
-  
+
+.yAxisText{ 
+font-family: 'Open Sans Condensed', sans-serif ;
+}
+
   #toolTip {
       position: absolute;
       /* reference for measurement */
