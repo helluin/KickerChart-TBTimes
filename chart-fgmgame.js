@@ -37,7 +37,7 @@ function drawCharts(container_width) {
         var playerName = d3.select(document.getElementById("PlayerName"));
         var playerTeams = d3.select(document.getElementById("Teams"));
         var playerStats = d3.select(document.getElementById("Stats"));
-
+        var winPercentage = d3.select(document.getElementById("WinPercentage"));
         // setup x
         var xValue = function (d) {
                 //console.log(d);
@@ -57,6 +57,8 @@ function drawCharts(container_width) {
             , yMap = function (d) {
                 return yScale(yValue(d));
             }
+
+
 
 
 
@@ -112,20 +114,20 @@ function drawCharts(container_width) {
                 var thisID = "G-TWO" + i;
                 dotHighlight(d, i, thisID, this);
 
-                var thisPlayer = d;
-                playerName.text(function () {
-                    console.log(thisPlayer);
-                    return d.kicker;
-                });
-                playerTeams.text(function () {
-                    return d.team;
-                });
+                $("#PlayerName").html(d.kicker + ", " + "<span class=\'TeamNameSpan\' >" + d.team + "</span>");
                 playerStats.text(function () {
                     var rawStats = d.fgmgame;
                     var formattedStats = d3.format(".3g")(rawStats);
                     return "FG/Game: " + formattedStats;
 
-                }).style("color",   "rgb(160, 100, 160)") ;
+                }).style("color", "rgb(160, 100, 160)");
+
+                winPercentage.text(function () {
+                    var rawStats = d.win;
+                    var formattedStats = d3.format(".3g")(rawStats);
+                    return "Win%: " + formattedStats;
+
+                }).style("color", "rgb(150,150,150)");
 
                 toolTip.transition().duration(200)
                     .style("opacity", 1)
@@ -150,37 +152,37 @@ function drawCharts(container_width) {
 
 
         //Trend Line
-//        var xSeries = data.map(function (d) {
-//            return parseFloat(d['fgmgame']);
-//        });;
-//        var ySeries = data.map(function (d) {
-//            return parseFloat(d['win']);
-//        });
-//
-//        var lr = linearRegression(ySeries, xSeries);
-//        console.log(lr.r2);
-//
-//        var max = d3.max(data, function (d) {
-//            return d.fgmgame;
-//        });
-//        var myLine = chartTwo.append("svg:line")
-//            .attr("class", "trendLine")
-//            .attr("x1", function () {
-//                console.log(xScale(0));
-//                return xScale(d3.min(data, xValue));
-//            })
-//            .attr("y1", function () {
-//                console.log(yScale(lr.intercept));
-//                return yScale(d3.min(data, xValue) * lr.slope + lr.intercept);
-//            })
-//            .attr("x2", function () {
-//                return xScale(max + 0.1);
-//
-//            })
-//            .attr("y2", function () {
-//
-//                return yScale(((max + 0.1) * lr.slope) + lr.intercept);
-//            }).style("stroke", "rgba(200,200,200,1)");
+        //        var xSeries = data.map(function (d) {
+        //            return parseFloat(d['fgmgame']);
+        //        });;
+        //        var ySeries = data.map(function (d) {
+        //            return parseFloat(d['win']);
+        //        });
+        //
+        //        var lr = linearRegression(ySeries, xSeries);
+        //        console.log(lr.r2);
+        //
+        //        var max = d3.max(data, function (d) {
+        //            return d.fgmgame;
+        //        });
+        //        var myLine = chartTwo.append("svg:line")
+        //            .attr("class", "trendLine")
+        //            .attr("x1", function () {
+        //                console.log(xScale(0));
+        //                return xScale(d3.min(data, xValue));
+        //            })
+        //            .attr("y1", function () {
+        //                console.log(yScale(lr.intercept));
+        //                return yScale(d3.min(data, xValue) * lr.slope + lr.intercept);
+        //            })
+        //            .attr("x2", function () {
+        //                return xScale(max + 0.1);
+        //
+        //            })
+        //            .attr("y2", function () {
+        //
+        //                return yScale(((max + 0.1) * lr.slope) + lr.intercept);
+        //            }).style("stroke", "rgba(200,200,200,1)");
 
         if (pymChild) {
             pymChild.sendHeight();
@@ -321,7 +323,7 @@ function drawCharts(container_width) {
 
 
 
-     function toolTipLocator(thisAxis) {
+    function toolTipLocator(thisAxis) {
         if (thisAxis === "x") {
             var flipThreshold;
             var initialWidth = $("#iframeContainer").width();
@@ -337,13 +339,12 @@ function drawCharts(container_width) {
             } else {
                 return (d3.event.pageX - offsetX - 20) + "px";
             }
-        } 
-        else if (thisAxis === "y") {
+        } else if (thisAxis === "y") {
             var offsetY = $("#toolTip").height();
-               console.log(offsetY);
-               console.log(d3.event.pageY)
-            if (d3.event.pageY+offsetY > height) {
-                return ( d3.event.pageY -offsetY) + "px";
+            console.log(offsetY);
+            console.log(d3.event.pageY)
+            if (d3.event.pageY + offsetY > height) {
+                return (d3.event.pageY - offsetY) + "px";
             } else {
                 return (d3.event.pageY) + "px";
             }

@@ -42,6 +42,7 @@ function drawCharts(container_width) {
         var playerName = d3.select(document.getElementById("PlayerName"));
         var playerTeams = d3.select(document.getElementById("Teams"));
         var playerStats = d3.select(document.getElementById("Stats"));
+      var winPercentage = d3.select(document.getElementById("WinPercentage"));
 
         // setup x
         var xValue = function (d) {
@@ -110,20 +111,22 @@ function drawCharts(container_width) {
                 var thisID = "G-ONE" + i;
                 dotHighlight(d, i, thisID, this);
 
-                var thisPlayer = d;
-                playerName.text(function () {
-                    console.log(thisPlayer);
-                    return d.kicker;
-                });
-                playerTeams.text(function () {
-                    return d.team;
-                });
+                $("#PlayerName").html(d.kicker +", " + "<span class=\'TeamNameSpan\' >" + d.team + "</span>");
+               
+                console.log(playerName);
                 playerStats.text(function () {
                     var rawStats = d.avgFgDistance;
                     var formattedStats = d3.format(".3g")(rawStats);
                     return "Avg FG Distance: " + formattedStats;
 
                 }).style("color",   "rgb(200, 50, 50)");
+            
+                winPercentage.text(function () {
+                    var rawStats = d.win;
+                    var formattedStats = d3.format(".3g")(rawStats);
+                    return "Win%: " + formattedStats ;
+
+                }).style("color","rgb(150,150,150)");
 
                 toolTip.transition().duration(200)
                     .style("opacity", 1)

@@ -38,12 +38,20 @@
 
     </header>
     <div id="iframeWrapper">
+        <div id="Touchdown" style="position:relative;">
+        </div>
         <div id="FGMGame" style="position:relative;">
         </div>
         <div id="AvgFgDistance" style="position:relative;">
         </div>
 
         <div id="FG" style="position:relative;">
+        </div>
+        
+          <div id="DraftedKicker" style="position:relative;">
+        </div>
+        
+         <div id="DraftedQuarterback" style="position:relative;">
         </div>
 
 
@@ -54,9 +62,12 @@
 
 </body>
 <script>
+    var pymParent = new pym.Parent("Touchdown", "chart-touchdown.html", {});
     var pymParent = new pym.Parent("FG", "chart-fg.html", {});
     var pymParent = new pym.Parent("AvgFgDistance", "chart-avgfgdis.html", {});
     var pymParent = new pym.Parent("FGMGame", "chart-fgmgame.html", {});
+    var pymParent = new pym.Parent("DraftedKicker", "chart-draftedKickers.html", {});
+    var pymParent = new pym.Parent("DraftedQuarterback", "chart-draftedQB.html", {});
 </script>
 
 </html>
