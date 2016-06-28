@@ -1,5 +1,7 @@
+/*
 @font-face{ 
-   font-family: "HelveticaNeue-LtCondensed"; 
+
+   font-family: "Open Sans Condesned"; 
    src:url(HelveticaNeueLTStd-LtCn.otf);  
 }  
 
@@ -7,6 +9,8 @@
    font-family: "HelveticaNeue-Condensed"; 
    src:url(HelveticaNeueLTStd-LtCn.otf);  
 }  
+
+*/
 
 
  #PlayerName {
@@ -16,17 +20,17 @@
   }
   
 .TeamNameSpan { 
-     font-family: "HelveticaNeue-LtCondensed" ; 
+     font-family: "Open Sans Condesned",sans-serif ; 
 
 }
 
   #Teams {
-      font-family: "HelveticaNeueLightCondensed", "HelveticaNeue-Light-Condensed", "Helvetica Neue Light Condensed";
+      font-family: 'Open Sans Condensed',"HelveticaNeueLightCondensed", "HelveticaNeue-Light-Condensed", "Helvetica Neue Light Condensed";
       font-size: 1em;
   }
   
   #Stats {
-      font-family:  "HelveticaNeue-LtCondensed", sans-serif ;
+      font-family: 'Open Sans Condensed', sans-serif ;
       font-size: 1em;
   }
   
@@ -39,7 +43,7 @@
       background: #FFFFEF;
       padding: 5px;
       border: 1px solid #D5D5D5;
-      font-family: "HelveticaNeue-LtCondensed", sans-serif;
+      font-family: "Open Sans Condesned", sans-serif;
       position: absolute;
       font-size: 0.9em;
       color: #333;

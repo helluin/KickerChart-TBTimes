@@ -2,6 +2,8 @@ var pymChild = null;
 var graphics_aspect_width = 4;
 var graphics_aspect_height = 3;
 var mobile_threshold = 500;
+
+
 //var $graphic = $("#iframeContainer");
 
 function drawCharts(container_width) {
@@ -57,6 +59,7 @@ function drawCharts(container_width) {
             , yMap = function (d) {
                 return yScale(yValue(d));
             }
+
 
 
 
@@ -381,30 +384,40 @@ function drawCharts(container_width) {
 
 
 
-    function dotHighlight(d, i, thisID, that) {
+ function dotHighlight(d, i, thisID, that) {
+
+        var linkFrame_1 = parent.document.getElementById("chart-avgfgdis").contentDocument;
+        var linkFrame_2 = parent.document.getElementById("chart-fgmgame").contentDocument;
+        var linkFrame_3 = parent.document.getElementById("chart-fg").contentDocument;
+        //console.log(temp);
+
+
         var ID_a;
         var ID_b;
         if (thisID.search("G-ONE") != -1) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
+            var tempID1 = linkFrame_2.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", (5 ) + 10);
+            var tempID2 = linkFrame_3.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", (5 ) + 10);
+
+
+            d3.select(tempID2).transition().duration(500).attr("r", (5 ) + 10);
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
+            var tempID1 = linkFrame_1.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", (5 ) + 10);
+            var tempID2 = linkFrame_3.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
+            var tempID1 = linkFrame_1.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", (5 ) + 10);
+            var tempID2 = linkFrame_2.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", (5 ) + 10);
             console.log(ID_b);
         }
         return d3.select(that).transition().duration(500).attr("r", (5) + 13);
@@ -412,32 +425,37 @@ function drawCharts(container_width) {
 
     function dotShrink(d, i, thisID, that) {
 
+        var linkFrame_1 = parent.document.getElementById("chart-avgfgdis").contentDocument;
+        var linkFrame_2 = parent.document.getElementById("chart-fgmgame").contentDocument;
+        var linkFrame_3 = parent.document.getElementById("chart-fg").contentDocument;
+
+
         var ID_a;
         var ID_b;
         if (thisID.search("G-ONE") != -1) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 + d.games * 0.03);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 + d.games * 0.03);
+            var tempID1 = linkFrame_2.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", 5 );
+            var tempID2 = linkFrame_3.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", 5 );
 
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
             console.log(ID_a);
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 + d.games * 0.03);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 + d.games * 0.03);
+            var tempID1 = linkFrame_1.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", 5 );
+            var tempID2 = linkFrame_3.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", 5 );
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
             console.log(ID_a);
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 + d.games * 0.03);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 + d.games * 0.03);
+            var tempID1 = linkFrame_1.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", 5 );
+            var tempID2 = linkFrame_2.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", 5 );
         }
         //  console.log(that);
         return d3.select(that).transition().duration(500).attr("r", 5);
@@ -452,5 +470,6 @@ $(window).load(function () {
     pymChild = new pym.Child({
         renderCallback: drawCharts
     });
+
 
 })

@@ -157,7 +157,11 @@
             var width = this.el.offsetWidth.toString();
 
             // Create an iframe element attached to the document.
-            this.iframe = document.createElement('iframe');
+            this.iframe = document.createElement('iframe'); 
+            
+            
+            this.iframe.id =url.substr(0, url.indexOf('.'));
+            console.log(this.iframe.id);
 
             // Save fragment id
             var hash = '';

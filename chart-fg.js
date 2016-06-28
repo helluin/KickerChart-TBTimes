@@ -37,7 +37,7 @@ function drawCharts(container_width) {
         var playerName = d3.select(document.getElementById("PlayerName"));
         var playerTeams = d3.select(document.getElementById("Teams"));
         var playerStats = d3.select(document.getElementById("Stats"));
-        var winPercentage=d3.select(document.getElementById("WinPercentage"));
+        var winPercentage = d3.select(document.getElementById("WinPercentage"));
 
         // setup x
         var xValue = function (d) {
@@ -85,22 +85,17 @@ function drawCharts(container_width) {
             .append("text")
             .attr("text-anchor", "middle") // this makes it easy to centre the text as the transform is applied to the anchor
             .attr("transform", "translate(-55" + "," + (height / 2) + ")rotate(-90)") // text is drawn off the screen top left, move down and out and rotate
-
-        .text("Win percentage");
+            .text("Win percentage");
         //draw dots
         chartThree.selectAll(".dot")
             .data(data)
             .enter().append("circle")
             .attr("class", "dot")
             .attr("id", function (d, i) {
-
                 return "G-THREE" + i;
             })
             .attr("r", function (d, i) {
-
                 return 5;
-
-
             })
             .attr("cx", xMap)
             .attr("cy", yMap)
@@ -110,23 +105,18 @@ function drawCharts(container_width) {
             .on("mouseover", function (d, i) {
                 var thisID = "G-THREE" + i;
                 dotHighlight(d, i, thisID, this);
-
-
+                //Write to DOM
                 $("#PlayerName").html(d.kicker + ", " + "<span class=\'TeamNameSpan\' >" + d.team + "</span>");
                 playerStats.text(function () {
                     var rawStats = d.fg;
                     var formattedStats = d3.format(".3g")(rawStats);
                     return "Avg FG Distance: " + formattedStats + "%";
-
                 }).style("color", "rgb(100,150,240)");
-
                 winPercentage.text(function () {
                     var rawStats = d.win;
                     var formattedStats = d3.format(".3g")(rawStats);
                     return "Win%: " + formattedStats;
-
                 }).style("color", "rgb(150,150,150)");
-
                 toolTip.transition().duration(400)
                     .style("opacity", 1)
                     .style('position', 'absolute')
@@ -134,14 +124,10 @@ function drawCharts(container_width) {
                     .style('top', toolTipLocator("y"))
                     .style("width", "auto")
                     .style("height", "auto");
-
-
             })
             .on("mouseout", function (d, i) {
                 var thisID = "G-THREE" + i;
                 dotShrink(d, i, thisID, this);
-
-
                 toolTip.transition().duration(400)
                     .style("opacity", 0);
             })
@@ -248,29 +234,39 @@ function drawCharts(container_width) {
 
 
     function dotHighlight(d, i, thisID, that) {
+
+        var linkFrame_1 = parent.document.getElementById("chart-avgfgdis").contentDocument;
+        var linkFrame_2 = parent.document.getElementById("chart-fgmgame").contentDocument;
+        var linkFrame_3 = parent.document.getElementById("chart-fg").contentDocument;
+        //console.log(temp);
+
+
         var ID_a;
         var ID_b;
         if (thisID.search("G-ONE") != -1) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
+            var tempID1 = linkFrame_2.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10);
+            var tempID2 = linkFrame_3.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
+
+
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
+            var tempID1 = linkFrame_1.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10);
+            var tempID2 = linkFrame_3.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5 + d.games * 0.03) + 10);
+            var tempID1 = linkFrame_1.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10);
+            var tempID2 = linkFrame_2.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10);
             console.log(ID_b);
         }
         return d3.select(that).transition().duration(500).attr("r", (5) + 13);
@@ -278,32 +274,37 @@ function drawCharts(container_width) {
 
     function dotShrink(d, i, thisID, that) {
 
+        var linkFrame_1 = parent.document.getElementById("chart-avgfgdis").contentDocument;
+        var linkFrame_2 = parent.document.getElementById("chart-fgmgame").contentDocument;
+        var linkFrame_3 = parent.document.getElementById("chart-fg").contentDocument;
+
+
         var ID_a;
         var ID_b;
         if (thisID.search("G-ONE") != -1) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 + d.games * 0.03);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 + d.games * 0.03);
+            var tempID1 = linkFrame_2.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", 5);
+            var tempID2 = linkFrame_3.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", 5);
 
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
             console.log(ID_a);
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 + d.games * 0.03);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 + d.games * 0.03);
+            var tempID1 = linkFrame_1.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", 5);
+            var tempID2 = linkFrame_3.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", 5);
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
             console.log(ID_a);
-            var tempID1 = document.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5 + d.games * 0.03);
-            var tempID2 = document.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5 + d.games * 0.03);
+            var tempID1 = linkFrame_1.getElementById(ID_a);
+            d3.select(tempID1).transition().duration(500).attr("r", 5);
+            var tempID2 = linkFrame_2.getElementById(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", 5);
         }
         //  console.log(that);
         return d3.select(that).transition().duration(500).attr("r", 5);
