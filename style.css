@@ -1,26 +1,46 @@
-.axis path{ 
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400';
 
-    fill:none; 
-    stroke:#000;
+body {
+  margin: 0;
+  padding: 0;
 }
-
-.axis text{ 
-
-    font-family: "HelveticaNeue-Light"
+.axis path {
+  fill: none;
+  stroke: #000;
 }
-
-.axis .tick text{ 
-
-    font-size:0.8em; 
-    font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue";
-    font-kerning:none; 
+.axis text {
+  font-family: "Open Sans", "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-kerning: none;
+  font-size: 14px;
 }
-
-svg{ 
-   margin: 0 auto;
+/*.axis .tick text {
+  font-family: "Open Sans","HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: 300;
+}*/
+svg {
+  margin: 0;
   color: white;
-  padding: 15px;
-  margin: 5px auto;
+  /*padding: 15px;*/
 }
- 
-
+@media only screen and (max-width: 600px) {
+  .axis text {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .axis text {
+    font-size: 11px;
+  }
+}
+#iframeWrapper {
+  width: 767px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 767px) {
+  #iframeWrapper {
+    width: 94%;
+    margin: 0 auto;
+  }
+}
