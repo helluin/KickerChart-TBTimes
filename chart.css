@@ -1,0 +1,82 @@
+/*
+@font-face{ 
+
+   font-family: "Open Sans Condesned"; 
+   src:url(HelveticaNeueLTStd-LtCn.otf);  
+}  
+
+@font-face{ 
+   font-family: "HelveticaNeue-Condensed"; 
+   src:url(HelveticaNeueLTStd-LtCn.otf);  
+}  
+
+*/
+
+
+ #PlayerName {
+      font-family: "HelveticaNeue-CondensedBold", "HelveticaNeue-Condensed";
+      font-size: 1.1em;
+      margin-bottom: 1px;
+  }
+  
+.TeamNameSpan { 
+     font-family: 'Open Sans Condensed',"HelveticaNeueLightCondensed", "HelveticaNeue-Light-Condensed", "Helvetica Neue Light Condensed" ; 
+
+}
+
+  #Teams {
+      font-family: 'Open Sans Condensed',"HelveticaNeueLightCondensed", "HelveticaNeue-Light-Condensed", "Helvetica Neue Light Condensed";
+      font-size: 1em;
+  }
+  
+  #Stats, #WinPercentage{
+      font-family: 'Open Sans Condensed', sans-serif ;
+      font-size: 1em;
+  }
+
+.yAxisText{ 
+font-family: 'Open Sans Condensed', sans-serif ;
+}
+
+  #toolTip {
+      position: absolute;
+      /* reference for measurement */
+      text-align: left;
+      pointer-events: none;
+      /* 'none' tells the mouse to ignore the rectangle */
+      background: #FFFFEF;
+      padding: 5px;
+      border: 1px solid #D5D5D5;
+      font-family: 'Open Sans Condensed',"HelveticaNeueLightCondensed", "HelveticaNeue-Light-Condensed", "Helvetica Neue Light Condensed";
+      position: absolute;
+      font-size: 1em;
+      color: #333;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(200, 200, 200, 0.85);
+      opacity: 0;
+      z-index: 0;
+  }
+
+
+  /*
+        @media only screen and (max-width: 500px) {
+            #iframeWrapper {
+                width: 94%;
+                margin: 0 auto;
+            }
+        }
+*/
+  
+/*
+  #header-rule {
+      height: 1px;
+      
+      margin-top: 0px;
+      margin-bottom: 2px;
+      background: #ddd;
+      width: 30px;
+  }*/

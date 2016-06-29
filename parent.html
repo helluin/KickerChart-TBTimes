@@ -2,25 +2,58 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sport | Sport | Tampa Bay Times</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sport | Sport | Tampa Bay Times</title>
   <meta name="description" content="XXXXXXXXXXXXXXXXXXXXX">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="https://use.fontawesome.com/46999ab949.js"></script>
-  <script src="d3.js"></script>
-  <script src="nvd3.js"></script>
-  <script src="pym.js"></script>
-  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://use.fontawesome.com/46999ab949.js"></script>
+    <script src="d3.js"></script>
+    <script src="nvd3.js"></script>
+    <script src="pym.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+
+    <style type="text/css">
+        #iframeWrapper {
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media only screen and (max-width: 500px) {
+            #iframeWrapper {
+                width: 94%;
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-  </header>
-  <div id="iframeWrapper">
-    <div id="FGMGame" class="chart-holder" style="position:relative;">
+    <header>
+
+    </header>
+    <div id="iframeWrapper">
+        <div id="Touchdown" style="position:relative;">
+        </div>
+        <div id="FGMGame" style="position:relative;">
+        </div>
+        <div id="AvgFgDistance" style="position:relative;">
+        </div>
+
+        <div id="FG" style="position:relative;">
+        </div>
+        
+          <div id="DraftedKicker" style="position:relative;">
+        </div>
+        
+         <div id="DraftedQuarterback" style="position:relative;">
+        </div>
+        <div>testing git with terminal</div>
+
     </div>
     <div id="FG" class="chart-holder" style="position:relative;">
     </div>
@@ -31,10 +64,18 @@
   <!-- END FOOTER -->
 </body>
 <script>
-var pymParent = new pym.Parent("FGMGame", "chart-fgmgame.html", {});
-var pymParent = new pym.Parent("FG", "chart-fg.html", {});
-var pymParent = new pym.Parent("FG", "chart-fg.html", {});
-
+    var pymParent = new pym.Parent("Touchdown", "chart-touchdown.html", {});
+    var pymParent = new pym.Parent("FG", "chart-fg.html", {});
+    var pymParent = new pym.Parent("AvgFgDistance", "chart-avgfgdis.html", {});
+    var pymParent = new pym.Parent("FGMGame", "chart-fgmgame.html", {});
+    var pymParent = new pym.Parent("DraftedKicker", "chart-draftedKickers.html", {});
+    var pymParent = new pym.Parent("DraftedQuarterback", "chart-draftedQB.html", {});
+    
+    window.addEventListener("message", function(m){ 
+    
+        console.log(m);
+    
+    })
 </script>
 
 </html>
