@@ -1772,6 +1772,15 @@ window.onload = document.write(today);
 
             </script>
             <style>
+              @import 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700';
+              .entry-content h2, .entry-content h4 {
+                font-family: "Roboto Slab", georgia, serif;
+                text-transform: none;
+                margin-bottom: .5em;
+              }
+              .entry-content h4 {
+                font-weight: 700;
+              }
               .wordbreak { word-break: break-all; }
               .articleInline { display: none; }
               .sb { color: #f19a16; }
@@ -1863,7 +1872,7 @@ window.onload = document.write(today);
               <p>To find out, we analyzed the regular-season performances of every kicker who played in at least 10 games from 2006 to 2015. Then we looked at the win-loss records for each of those 64 kickers.
               <p>The analysis shows there is virtually no statistical correlation between a kicker’s performance and his team’s winning percentage. Simply put: Better kickers don’t mean more wins.
               <p>Field goals might keep a game close, but touchdowns are everything. Here’s the proof. This chart plots the relationship between touchdowns and winning percentage. Note that the arrangement of the dots appear to create a straight line. What we have is a strong positive correlation. You can safely predict that when a team scores more touchdowns, its winning percentage increases.
-              <p><strong>Win percentage vs. touchdowns</strong>
+              <h4>Win percentage vs. touchdowns</h4>
               <p>chart-touchdown</p>
               <div id="chart-touchdown" src="//localhost:8080/chart-touchdown.html" class="pym-container">
               </div>
@@ -1873,7 +1882,7 @@ window.onload = document.write(today);
               <p>That’s not to say kickers are totally irrelevant. They add drama, but what they lack is influence.
               <p>Contrast the touchdowns chart with the charts below that plot kickers’ performances. The dots don’t come close to fitting a straight line. Instead of depicting a strong linear relationship, the charts better resemble paper after target practice.
               <p>Let’s start by comparing field goals kickers make per game. During the decade we studied, Mason Crosby, Caleb Sturgis and Jason Hanson made roughly the same number  of tries — a little more than 1.6 per game. Their teams’ winning percentages, however, vary wildly. Crosby’s Packers won 67 percent of their games, Sturgis’ teams won about 50 percent and Hanson’s Lions won 27 percent.
-              <p><strong>Win percentage vs. field goals made per game</strong>
+              <h4>Win percentage vs. field goals made per game</h4>
               <p>chart-fgmgame</p>
               <div id="chart-fgmgame" src="//localhost:8080/chart-fgmgame.html" class="pym-container">
               </div>
