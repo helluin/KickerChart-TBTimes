@@ -18,7 +18,7 @@ function drawCharts(container_width) {
             top: 20
             , right: 20
             , bottom: 30
-            , left: 50
+            , left: 80
         }
         , padding = 20
         , width = container_width - margin.left - margin.right
