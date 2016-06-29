@@ -11,9 +11,9 @@ function drawCharts(container_width) {
     }
     var margin = {
             top: 20
-            , right: 50
+            , right: 20
             , bottom: 30
-            , left: 60
+            , left: 80
         }
         , padding = 20
         , width = container_width - margin.left - margin.right
