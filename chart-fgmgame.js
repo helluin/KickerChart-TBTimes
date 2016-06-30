@@ -100,12 +100,10 @@ function drawCharts(container_width) {
             .enter().append("circle")
             .attr("class", "dot")
             .attr("id", function (d, i) {
-
-                return "G-TWO" + i;
+                return "G2" + d.kicker;
             })
             .attr("r", function (d, i) {
                 return 5;
-
             })
             .attr("cx", xMap)
             .attr("cy", yMap)
@@ -113,7 +111,7 @@ function drawCharts(container_width) {
                 return "rgba(200,150,190,0.5)";
             })
             .on("mouseover", function (d, i) {
-                var thisID = "G-TWO" + i;
+                var thisID = "G2" + d.kicker;
                 dotHighlight(d, i, thisID, this);
 
                 $("#PlayerName").html(d.kicker + ", " + "<span class=\'TeamNameSpan\' >" + d.team + "</span>");
@@ -142,7 +140,7 @@ function drawCharts(container_width) {
 
             })
             .on("mouseout", function (d, i) {
-                var thisID = "G-TWO" + i;
+                var thisID = "G2" + d.kicker;
                 dotShrink(d, i, thisID, this);
 
                 toolTip.transition().duration(400)
@@ -393,23 +391,23 @@ function drawCharts(container_width) {
 
         var ID_a;
         var ID_b;
-        if (thisID.search("G-ONE") != -1) {
-            ID_a = "G-TWO" + i;
-            ID_b = "G-THREE" + i;
+        if (thisID.search("G1") != -1) {
+            ID_a = "G2" + d.kicker;
+            ID_b = "G3" + d.kicker;
             var tempID1 = linkFrame_2.getElementById(ID_a);
             d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
             d3.select(tempID2).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
-        } else if (thisID.search("G-TWO") != -1) {
-            ID_a = "G-ONE" + i;
-            ID_b = "G-THREE" + i;
+        } else if (thisID.search("G2") != -1) {
+            ID_a = "G1" + d.kicker;
+            ID_b = "G3" + d.kicker;
             var tempID1 = linkFrame_1.getElementById(ID_a);
             d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
             d3.select(tempID2).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
-        } else if (thisID.search("G-THREE") != -1) {
-            ID_a = "G-ONE" + i;
-            ID_b = "G-TWO" + i;
+        } else if (thisID.search("G3") != -1) {
+            ID_a = "G1" + d.kicker;
+            ID_b = "G2" + d.kicker;
             var tempID1 = linkFrame_1.getElementById(ID_a);
             d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_2.getElementById(ID_b);
@@ -418,8 +416,8 @@ function drawCharts(container_width) {
         }
         return d3.select(that).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
     }
-
-    function dotShrink(d, i, thisID, that) {
+    
+   function dotShrink(d, i, thisID, that) {
 
         var linkFrame_1 = parent.document.getElementById("chart-avgfgdis").contentDocument;
         var linkFrame_2 = parent.document.getElementById("chart-fgmgame").contentDocument;
@@ -428,33 +426,33 @@ function drawCharts(container_width) {
 
         var ID_a;
         var ID_b;
-        if (thisID.search("G-ONE") != -1) {
-            ID_a = "G-TWO" + i;
-            ID_b = "G-THREE" + i;
+        if (thisID.search("G1") != -1) {
+            ID_a = "G2" + d.kicker;
+            ID_b = "G3" + d.kicker;
             var tempID1 = linkFrame_2.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
 
-        } else if (thisID.search("G-TWO") != -1) {
-            ID_a = "G-ONE" + i;
-            ID_b = "G-THREE" + i;
+        } else if (thisID.search("G2") != -1) {
+            ID_a = "G1" + d.kicker;
+            ID_b = "G3" + d.kicker;
             //console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
-        } else if (thisID.search("G-THREE") != -1) {
-            ID_a = "G-ONE" + i;
-            ID_b = "G-TWO" + i;
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
+        } else if (thisID.search("G3") != -1) {
+            ID_a = "G1" + d.kicker;
+            ID_b = "G2" + d.kicker;
             //console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
+            d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
             var tempID2 = linkFrame_2.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
+            d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
         }
         //  //console.log(that);
-        return d3.select(that).transition().duration(500).attr("r", 5).attr("stroke","none");
+        return d3.select(that).transition().duration(500).attr("r", 5).attr("stroke", "none");
 
     }
 
