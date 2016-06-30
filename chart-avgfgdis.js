@@ -44,7 +44,7 @@ function drawCharts(container_width) {
 
         // setup x
         var xValue = function (d) {
-                //console.log(d);
+                ////console.log(d);
                 return d.avgFgDistance;
             }
             , xScale = d3.scale.linear().range([0, width])
@@ -54,7 +54,7 @@ function drawCharts(container_width) {
             , xAxis = d3.svg.axis().scale(xScale).outerTickSize(0).orient("bottom").ticks(5);
         // setup y
         var yValue = function (d) {
-                //console.log(d);
+                ////console.log(d);
                 return d.win;
             }
             , yScale = d3.scale.linear().range([height, 0])
@@ -117,7 +117,7 @@ function drawCharts(container_width) {
 
                 //                var toolTipCrossOver_1 = parent.document.getElementById("chart-fgmgame").contentDocument.getElementById("toolTip");
                 //                var toolTipCrossOver_2 = parent.document.getElementById("chart-fg").contentDocument.getElementById("toolTip");
-                //                console.log(toolTipCrossOver_1);
+                //                //console.log(toolTipCrossOver_1);
                 //                d3.select(toolTipCrossOver_1).transition().duration(200)
                 //                    .style("opacity", 1)
                 //                    .style('position', 'absolute')
@@ -156,7 +156,7 @@ function drawCharts(container_width) {
         //        });
         //
         //        var lr = linearRegression(ySeries, xSeries);
-        //        console.log(lr.r2);
+        //        //console.log(lr.r2);
         //
         //        var max = d3.max(data, function (d) {
         //            return d.avgFgDistance;
@@ -164,11 +164,11 @@ function drawCharts(container_width) {
         //        var myLine = chartOne.append("svg:line")
         //            .attr("class", "trendLine")
         //            .attr("x1", function () {
-        //                console.log(xScale(0));
+        //                //console.log(xScale(0));
         //                return xScale(d3.min(data, xValue));
         //            })
         //            .attr("y1", function () {
-        //                console.log(yScale(lr.intercept));
+        //                //console.log(yScale(lr.intercept));
         //                return yScale(d3.min(data, xValue) * lr.slope + lr.intercept);
         //            })
         //            .attr("x2", function () {
@@ -228,7 +228,7 @@ function drawCharts(container_width) {
                 flipThreshold = pymChild.parentWidth * 2 / 3;
             }
             var offsetX = $("#toolTip").width();
-            console.log(offsetX);
+            //console.log(offsetX);
             if (d3.event.pageX < flipThreshold) {
                 return (d3.event.pageX + 20) + "px";
             } else {
@@ -236,8 +236,8 @@ function drawCharts(container_width) {
             }
         } else if (thisAxis === "y") {
             var offsetY = $("#toolTip").height();
-            console.log(offsetY);
-            console.log(d3.event.pageY)
+            //console.log(offsetY);
+            //console.log(d3.event.pageY)
             if (d3.event.pageY + offsetY > height) {
                 return (d3.event.pageY - offsetY) + "px";
             } else {
@@ -272,7 +272,7 @@ function drawCharts(container_width) {
     }
 
 
-    function dotHighlight(d, i, thisID, that) {
+     function dotHighlight(d, i, thisID, that) {
 
         var linkFrame_1 = parent.document.getElementById("chart-avgfgdis").contentDocument;
         var linkFrame_2 = parent.document.getElementById("chart-fgmgame").contentDocument;
@@ -286,28 +286,26 @@ function drawCharts(container_width) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_2.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke", "rgb(100,100,100)").attr("stroke-width", 1);
-
-
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke", "rgb(100,100,100)").attr("stroke-width", 1);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke", "rgb(100,100,100)").attr("stroke-width", 1);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke", "rgb(100,100,100)").attr("stroke-width", 1);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke", "rgb(100,100,100)").attr("stroke-width", 1);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_2.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke", "rgb(100,100,100)").attr("stroke-width", 1);
-            console.log(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
+        //    //console.log(ID_b);
         }
-        return d3.select(that).transition().duration(500).attr("r", (5) + 13).attr("stroke", "rgb(100,100,100)").attr("stroke-width", 1);
+        return d3.select(that).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
     }
 
     function dotShrink(d, i, thisID, that) {
@@ -330,7 +328,7 @@ function drawCharts(container_width) {
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
-            console.log(ID_a);
+            //console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
             d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
             var tempID2 = linkFrame_3.getElementById(ID_b);
@@ -338,13 +336,13 @@ function drawCharts(container_width) {
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
-            console.log(ID_a);
+            //console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
             d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
             var tempID2 = linkFrame_2.getElementById(ID_b);
             d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width", 0).attr("stroke", "none");
         }
-        //  console.log(that);
+        //  //console.log(that);
         return d3.select(that).transition().duration(500).attr("r", 5).attr("stroke", "none");
 
     }

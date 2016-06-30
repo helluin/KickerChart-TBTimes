@@ -162,7 +162,7 @@ function drawCharts(container_width) {
         //        });
         //
         //        var lr = linearRegression(ySeries, xSeries);
-        //        console.log(lr.r2);
+        //        //console.log(lr.r2);
         //
         //        var max = d3.max(data, function (d) {
         //            return d.fgmgame;
@@ -170,11 +170,11 @@ function drawCharts(container_width) {
         //        var myLine = chartTwo.append("svg:line")
         //            .attr("class", "trendLine")
         //            .attr("x1", function () {
-        //                console.log(xScale(0));
+        //                //console.log(xScale(0));
         //                return xScale(d3.min(data, xValue));
         //            })
         //            .attr("y1", function () {
-        //                console.log(yScale(lr.intercept));
+        //                //console.log(yScale(lr.intercept));
         //                return yScale(d3.min(data, xValue) * lr.slope + lr.intercept);
         //            })
         //            .attr("x2", function () {
@@ -188,7 +188,7 @@ function drawCharts(container_width) {
 
         if (pymChild) {
             pymChild.sendHeight();
-            console.log(pymChild);
+         //   //console.log(pymChild);
         }
 
 
@@ -291,7 +291,7 @@ function drawCharts(container_width) {
     //        });
     //
     //        var lr = linearRegression(ySeries, xSeries);
-    //        console.log(lr.r2);
+    //        //console.log(lr.r2);
     //
     //        var max = d3.max(data, function (d) {
     //            return d.fg;
@@ -299,11 +299,11 @@ function drawCharts(container_width) {
     //        var myLine = chartThree.append("svg:line")
     //            .attr("class", "trendLine")
     //            .attr("x1", function () {
-    //                console.log(xScale(0));
+    //                //console.log(xScale(0));
     //                return xScale(d3.min(data, xValue));
     //            })
     //            .attr("y1", function () {
-    //                console.log(yScale(lr.intercept));
+    //                //console.log(yScale(lr.intercept));
     //                return yScale(d3.min(data, xValue) * lr.slope + lr.intercept);
     //            })
     //            .attr("x2", function () {
@@ -335,7 +335,7 @@ function drawCharts(container_width) {
                 flipThreshold = pymChild.parentWidth * 2 / 3;
             }
             var offsetX = $("#toolTip").width();
-            console.log(offsetX);
+           // //console.log(offsetX);
             if (d3.event.pageX < flipThreshold) {
                 return (d3.event.pageX + 20) + "px";
             } else {
@@ -343,8 +343,8 @@ function drawCharts(container_width) {
             }
         } else if (thisAxis === "y") {
             var offsetY = $("#toolTip").height();
-            console.log(offsetY);
-            console.log(d3.event.pageY)
+           // //console.log(offsetY);
+          //  //console.log(d3.event.pageY)
             if (d3.event.pageY + offsetY > height) {
                 return (d3.event.pageY - offsetY) + "px";
             } else {
@@ -397,24 +397,24 @@ function drawCharts(container_width) {
             ID_a = "G-TWO" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_2.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_3.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
             var tempID1 = linkFrame_1.getElementById(ID_a);
-            d3.select(tempID1).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
+            d3.select(tempID1).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
             var tempID2 = linkFrame_2.getElementById(ID_b);
-            d3.select(tempID2).transition().duration(500).attr("r", (5) + 10).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
-            console.log(ID_b);
+            d3.select(tempID2).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
+        //    //console.log(ID_b);
         }
         return d3.select(that).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
     }
@@ -439,7 +439,7 @@ function drawCharts(container_width) {
         } else if (thisID.search("G-TWO") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-THREE" + i;
-            console.log(ID_a);
+            //console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
             d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
             var tempID2 = linkFrame_3.getElementById(ID_b);
@@ -447,13 +447,13 @@ function drawCharts(container_width) {
         } else if (thisID.search("G-THREE") != -1) {
             ID_a = "G-ONE" + i;
             ID_b = "G-TWO" + i;
-            console.log(ID_a);
+            //console.log(ID_a);
             var tempID1 = linkFrame_1.getElementById(ID_a);
             d3.select(tempID1).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
             var tempID2 = linkFrame_2.getElementById(ID_b);
             d3.select(tempID2).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
         }
-        //  console.log(that);
+        //  //console.log(that);
         return d3.select(that).transition().duration(500).attr("r", 5).attr("stroke","none");
 
     }

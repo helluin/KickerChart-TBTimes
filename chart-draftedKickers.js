@@ -41,7 +41,7 @@ function drawCharts(container_width) {
 
         // setup x
         var xValue = function (d) {
-                //console.log(d);
+                ////console.log(d);
                 return d.pick;
             }
             , xScale = d3.scale.linear().range([0, width])
@@ -53,7 +53,7 @@ function drawCharts(container_width) {
             }).ticks(5);
         // setup y
         var yValue = function (d) {
-                //console.log(d);
+                ////console.log(d);
                 return d.carav;
             }
             , yScale = d3.scale.linear().range([height, 0])
@@ -109,7 +109,7 @@ function drawCharts(container_width) {
                 dotHighlight(d, i, thisID, this);
 
                 player.text(function () {
-                    console.log(d);
+                    //console.log(d);
                     return d.player;
                 });
             
@@ -160,7 +160,7 @@ function drawCharts(container_width) {
 //        });
 //
 //        var lr = linearRegression(ySeries, xSeries);
-//        console.log(lr.r2);
+//        //console.log(lr.r2);
 //
 //        var max = d3.max(data, function (d) {
 //            return d.td;
@@ -168,11 +168,11 @@ function drawCharts(container_width) {
 //        var myLine = chartDraftedKicker.append("svg:line")
 //            .attr("class", "trendLine")
 //            .attr("x1", function () {
-//                console.log(xScale(0));
+//                //console.log(xScale(0));
 //                return xScale(d3.min(data, xValue));
 //            })
 //            .attr("y1", function () {
-//                console.log(yScale(lr.intercept));
+//                //console.log(yScale(lr.intercept));
 //                return yScale(d3.min(data, xValue) * lr.slope + lr.intercept);
 //            })
 //            .attr("x2", function () {
@@ -203,7 +203,7 @@ function drawCharts(container_width) {
                 flipThreshold = pymChild.parentWidth * 2 / 3;
             }
             var offsetX = $("#toolTip").width();
-            console.log(offsetX);
+            //console.log(offsetX);
             if (d3.event.pageX < flipThreshold) {
                 return (d3.event.pageX + 20) + "px";
             } else {
@@ -211,8 +211,8 @@ function drawCharts(container_width) {
             }
         } else if (thisAxis === "y") {
             var offsetY = $("#toolTip").height();
-            console.log(offsetY);
-            console.log(d3.event.pageY)
+            //console.log(offsetY);
+            //console.log(d3.event.pageY)
             if (d3.event.pageY + offsetY > height) {
                 return (d3.event.pageY - offsetY) + "px";
             } else {
@@ -251,11 +251,11 @@ function drawCharts(container_width) {
 
 
     function dotHighlight(d, i, thisID, that) {
-        return d3.select(that).transition().duration(500).attr("r", (5) + 13);
+        return d3.select(that).transition().duration(500).attr("r", (5) + 13).attr("stroke","rgb(100,100,100)").attr("stroke-width",1);
     }
 
     function dotShrink(d, i, thisID, that) {
-        return d3.select(that).transition().duration(500).attr("r", 5);
+        return d3.select(that).transition().duration(500).attr("r", 5).attr("stroke-width",0).attr("stroke","none");
 
     }
 
