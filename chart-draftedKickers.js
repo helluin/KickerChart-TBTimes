@@ -65,7 +65,7 @@ function drawCharts(container_width) {
 
 
         xScale.domain([d3.min(data, xValue) - 5, d3.max(data, xValue) + 10]);
-        yScale.domain([d3.min(data, yValue) - 3, d3.max(data, yValue)+2]);
+        yScale.domain([d3.min(data, yValue) - 5, 180]);
         // x-axis
         chartDraftedKicker.append("g")
             .attr("class", "x axis")
