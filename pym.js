@@ -159,8 +159,10 @@
             // Create an iframe element attached to the document.
             this.iframe = document.createElement('iframe'); 
             
-            
-            this.iframe.id =url.substr(0, url.indexOf('.'));
+            var splittedURL= url.split("/"); 
+            var getChartNameHTML=splittedURL[splitedURL.length-1].split("?")[0];
+            var getChartName=getChartNameHTML.split(".")[0];
+            this.iframe.id = getChartName;
             console.log(this.iframe.id);
 
             // Save fragment id
