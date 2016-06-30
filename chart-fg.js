@@ -75,7 +75,7 @@ function drawCharts(container_width) {
             .append("text")
             .attr("class", "label")
             .style("text-anchor", "middle")
-            .style("font-family", "HelveticaNeue-CondensedBold")
+            // .style("font-family", "HelveticaNeue-CondensedBold")
             .attr("transform", "translate(" + width / 2 + ", 45)") // text is drawn off the screen top left, move down and out and rotate
             .text("Field goal percentage");
         // y-axis
