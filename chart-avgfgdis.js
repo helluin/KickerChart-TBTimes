@@ -241,7 +241,7 @@ function drawCharts(container_width) {
             if (d3.event.pageY + offsetY > height) {
                 return (d3.event.pageY - offsetY) + "px";
             } else {
-                return (d3.event.pageY) + "px";
+                return (d3.event.pageY-offsetY/2) + "px";
             }
         }
     }
