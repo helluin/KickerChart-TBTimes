@@ -1,0 +1,57 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700';
+.entry-content h2, .entry-content h4 {
+  font-family: "Roboto Slab", georgia, serif;
+  text-transform: none;
+  margin-bottom: .5em;
+}
+.entry-content h4 {
+  font-weight: 700;
+}
+@media only screen and (min-width: 601px) {
+  .entry-content h2 {
+    font-size: 2.5em;
+    margin-top: 1em;
+  }
+  .entry-content h4 {
+    font-size: 1.6em;
+    margin-top: 1em;
+  }
+}
+.wordbreak { word-break: break-all; }
+.articleInline { display: none; }
+.sb { color: #f19a16; }
+.article p.small {
+  font-size: .9em;
+  font-family: 'open sans', helvetica, arial, sans-serif;
+  margin: 0;
+}
+.article p.small+h4 {
+  margin-top: 1.5em;
+}
+.article p.small.right {
+  float: right;
+}
+@media only screen and (min-width: 601px) {
+  .article .pym-container {
+    padding: 1em 0;
+  }
+}
+.article span.divider {
+    text-align: center;
+    display: block;
+    letter-spacing: 1em;
+}
+.article .videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 1em;
+}
+.article .videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
