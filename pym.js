@@ -160,7 +160,7 @@
             this.iframe = document.createElement('iframe'); 
             
             var splittedURL= url.split("/"); 
-            var getChartNameHTML=splittedURL[splitedURL.length-1].split("?")[0];
+            var getChartNameHTML=splittedURL[splittedURL.length-1].split("?")[0];
             var getChartName=getChartNameHTML.split(".")[0];
             this.iframe.id = getChartName;
             console.log(this.iframe.id);

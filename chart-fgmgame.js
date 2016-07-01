@@ -15,7 +15,7 @@ function drawCharts(container_width) {
         container_width = 600;
     }
     var margin = {
-            top: 20
+            top: 30
             , right: 20
             , bottom: 60
             , left: 80
