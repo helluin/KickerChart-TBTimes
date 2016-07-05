@@ -66,7 +66,6 @@
 }
 .article p.chart-credit.small {
   text-align: right;
-  /*font-weight: bold;*/
   margin-bottom: 1em;
 }
 .highlighted_player_1 {
@@ -77,4 +76,8 @@
 }
 .highlighted_player_3 {
    background:rgba(80,100,250,0.3);
+}
+.highlighted_player_1, .highlighted_player_2, .highlighted_player_3  {
+    padding: 0 3px;
+    border-radius: 5px;
 }
